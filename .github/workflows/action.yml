@@ -15,6 +15,6 @@ jobs:
         dst_key: ${{ secrets.API_PRIVATE_KEY }}
         dst_token: ${{ secrets.API_TOKEN }}
         account_type: user
-        white_list: 'hustzc'
+        static_list: 'hustzc'
         force_update: true
         debug: true
