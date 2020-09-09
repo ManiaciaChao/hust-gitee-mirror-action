@@ -1,14 +1,19 @@
-on: push
+on: 
+  push:
+    paths:
+    - '.github/workflows/**'
+    # Runs at every pull requests submitted in master branch 
+    branches: [ master ]
+  schedule:
+    - cron:  '* */2 * * *'
 name: Sync with Gitee
 jobs:
   run:
     name: Run
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout source codes
-      uses: Yikun/hub-mirror-action@master
     - name: Mirror Github to Gitee
-      uses: ./.
+      uses: Yikun/hub-mirror-action@v0.09
       with:
         src: gitee/totalcontrol
         dst: github/maniaciachao
@@ -17,4 +22,4 @@ jobs:
         account_type: user
         static_list: 'hustzc'
         force_update: true
-        debug: true
+        # debug: true
