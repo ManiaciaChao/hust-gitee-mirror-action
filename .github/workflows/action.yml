@@ -1,0 +1,20 @@
+on: push
+name: Sync with Gitee
+jobs:
+  run:
+    name: Run
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source codes
+      uses: Yikun/hub-mirror-action@master
+    - name: Mirror Github to Gitee
+      uses: ./.
+      with:
+        src: gitee/totalcontrol
+        dst: github/maniaciachao
+        dst_key: ${{ secrets.GITHUB_PRIVATE_KEY }}
+        dst_token: ${{ secrets.GITHUB_TOKEN }}
+        account_type: user
+        white_list: 'hustzc'
+        force_update: true
+        debug: true
