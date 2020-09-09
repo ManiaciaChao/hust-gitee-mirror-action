@@ -12,8 +12,8 @@ jobs:
       with:
         src: gitee/totalcontrol
         dst: github/maniaciachao
-        dst_key: ${{ secrets.GITHUB_PRIVATE_KEY }}
-        dst_token: ${{ secrets.GITHUB_TOKEN }}
+        dst_key: ${{ secrets.API_PRIVATE_KEY }}
+        dst_token: ${{ secrets.API_TOKEN }}
         account_type: user
         white_list: 'hustzc'
         force_update: true
