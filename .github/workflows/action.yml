@@ -2,9 +2,10 @@ on:
   push:
     paths:
     - '.github/workflows/**'
-    # Runs at every pull requests submitted in master branch 
+    # runs at every push submitted in master branch 
     branches: [ master ]
   schedule:
+    # runs every 2 hours
     - cron:  '* */2 * * *'
 name: Sync with Gitee
 jobs:
