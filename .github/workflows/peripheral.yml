@@ -1,0 +1,26 @@
+on: 
+  push:
+    paths:
+    - '.github/workflows/**'
+    # runs at every push submitted in master branch 
+    branches: [ master ]
+  schedule:
+    # runs every 2 hours
+    - cron:  '* */2 * * *'
+name: Sync with Gitee Peripheral
+jobs:
+  run:
+    name: Run
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mirror Github to Gitee
+      uses: Yikun/hub-mirror-action@v0.09
+      with:
+        src: gitee/live_once
+        dst: github/maniaciachao
+        dst_key: ${{ secrets.API_PRIVATE_KEY }}
+        dst_token: ${{ secrets.API_TOKEN }}
+        account_type: user
+        static_list: 'hust_cs_peripheral_course'
+        force_update: true
+        # debug: true
